@@ -1,0 +1,7 @@
+6-8: Tela de Esqueceu a conta que não foi feita
+9-11: ajustes na tela de home, fazer igual no canvas, fazer os botões "<>" funcionarem, acessar o jogo pelo painel do carrossel, tirar o home e deixar apenas o logo do dragão para voltar ao inicio da pagina, categorias deve ser mostrado com rover
+12-14:Tela de categorias, sera dividido todas as categorias para cada um fazer.
+22-Loja Virtual
+24-Telas-Fundo animado com informações do jogo
+Tela de categorias- ao selecionar uma categoria de jogo teria um scrol para ver mais opções, as informações ficariam no lado direito(canvas pagina8).
+tela de perfil-clicando no nome do perfil ele abre um bloco onde tem informações do perfil, e la vai ter a opção de configurações onde podera ter o selo de aprovação para vender seus proprios itens.(canvas pagina13)

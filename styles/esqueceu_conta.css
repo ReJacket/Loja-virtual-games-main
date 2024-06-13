@@ -1,0 +1,91 @@
+:root {
+    --primary-color: #5044ac;
+    --dark-primary: #13005dc7;
+    --light-color: #ffffff;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+}
+
+body {
+    font-family: sans-serif;
+    background-image: url(../img/Backgound-login.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+    width: 100vw;
+}
+
+main {
+    background-color: var(--light-color);
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    width: 380px;
+    height:  300px;
+    position: absolute;
+    top: 50px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    gap: 1.7rem;
+    padding: 1.5rem;
+    border-radius: 3rem;
+}
+
+.text-main {
+    display: flex;
+    flex-direction: column;
+    gap: 0.80rem;
+    color: var(--dark-primary);
+    font-size: 12px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    text-align: start;
+    align-items: center;
+    gap: 1rem;
+}
+
+form>input {
+    border: 2px #000 solid;
+    border-radius: 55px;
+    width: 299px;
+    height: 32px;
+    padding: 0.2rem;
+}
+
+#login {
+    background-color: var(--primary-color);
+    color: var(--light-color);
+    border: 0;
+    cursor: pointer;
+    transition: all 0.5s;
+}
+
+#login:hover,
+button:hover {
+    background-color: var(--dark-primary);
+}
+
+#forgot {
+    border-bottom: 1px var(--primary-color) solid;
+}
+
+button {
+    border-radius: 1rem;
+    width: 299px;
+    height: 30px;
+    padding: 0.2rem;
+    background-color: var(--primary-color);
+    color: var(--light-color);
+    border: 0;
+    cursor: pointer;
+    transition: all 0.5s;
+}

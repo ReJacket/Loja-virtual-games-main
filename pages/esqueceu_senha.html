@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Esqueceu Senha</title>
+
+    <link rel="stylesheet" href="../styles/esqueceu_conta.css">
+    <link rel="shortcut icon" href="../img/favicon.ico">
+</head>
+
+<body>
+    <main>
+        <div class="text-main">
+            <h1>COSMIC DRAGONS</h1>
+            <h3>Para que possamos ajuda-lo peço que informe seu email</h3>
+        </div>
+        <form>
+            <label for="email" id="email"></label>
+            <input type="email" placeholder="Email" maxlength="30">
+            <input type="submit" value="Login" id="login">
+        </form>
+        <a href="../pages/choice.html"><button>Voltar</button></a>
+        <div id="redirecionamento"></div>
+    </main>
+    <script>
+        // Variável para rastrear se o botão "Tente de Outra Forma" já foi criado
+        let buttonCreated = false;
+
+        // Adiciona um ouvinte de evento ao botão de login
+        document.getElementById("login").addEventListener("click", function(event) {
+            // Adiciona um atraso de 280 milissegundos antes de executar a função de verificação do e-mail
+            setTimeout(function() {
+                // Obtém o valor do campo de e-mail e remove espaços em branco
+                var emailInput = document.querySelector('input[type="email"]');
+                var email = emailInput.value.trim();
+
+                // Verifica se o campo de e-mail está vazio ou se o e-mail não é válido
+                if (email === '' || !isValidEmail(email)) {
+                    // Impede o envio do formulário
+                    event.preventDefault();
+
+                    // Verifica se o botão já foi criado
+                    if (!buttonCreated) {
+                        // Cria um novo elemento de âncora
+                        var novoLink = document.createElement("a");
+
+                        // Define os atributos do novo link, como texto, href e classes
+                        novoLink.innerHTML = "Tente de Outra Forma";
+                        novoLink.href = "#"; // Adicione o URL desejado aqui
+                        novoLink.classList.add("classe-adicional"); // Adicione classes CSS adicionais, se necessário!
+
+                        // Encontra o elemento do botão "Voltar"
+                        var botaoVoltar = document.querySelector("a[href='../pages/choice.html']");
+
+                        // Adiciona o novo link após o botão "Voltar"
+                        botaoVoltar.parentNode.insertBefore(novoLink, botaoVoltar.nextSibling);
+
+                        // Atualiza a variável para indicar que o botão foi criado
+                        buttonCreated = true;
+                    }
+                }
+            }, 280); // Atraso de 280 milissegundos
+        });
+
+        // Função para verificar se um e-mail é válido
+        function isValidEmail(email) {
+            // Expressão regular para validar o formato do e-mail
+            var regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return regex.test(email); // Retorna true se o e-mail for válido, caso contrário, false
+        }
+    </script>
+</body>
+
+</html>

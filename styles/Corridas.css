@@ -1,0 +1,193 @@
+@import url('https://fonts.googleapis.com/css2?family=Anek+Kannada:wght@100..800&display=swap');
+
+:root {
+    --color-white: #fff;
+    --color-dark1: #272727;
+}
+
+h1 {
+    color: crimson;
+    text-align: center;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    color: var(--color-white);
+    background-image: url(../img/corridasfundo.jpg!d);
+    height: 100vh;
+    width: 100vw;
+    background-repeat: no-repeat; /* Alterado para não repetir a imagem */
+    background-size: cover; /* Alterado para a imagem cobrir todo o fundo */
+    background-attachment: fixed; /* Adicionado para a imagem ficar fixa ao rolar */
+    background-position: center; /* Adicionado para centralizar a imagem */
+    
+}
+
+.img_logo_header {
+    height: 30px;
+}
+
+.btn {
+    color: rgb(84, 84, 228);
+    border-color: rgb(84, 84, 228);
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+}
+
+main h1 {
+    font-family: "Anek Kannada", sans-serif;
+    color: black;
+    margin: 2vh 40vw;
+    font-size: 4rem;
+}
+
+section {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: row;
+    position: relative;
+}
+
+.img-commu {
+    height: 150px;
+    width: 250px;
+    border: 3px solid #148999;
+    border-radius: 20px;
+    box-shadow: 5px 5px 10px rgb(121, 124, 124);
+}
+
+.conteudo {
+    /* Define uma altura máxima para o elemento */
+    max-height: 400px; /* Ajuste conforme necessário */
+
+    /* Adiciona uma barra de rolagem vertical quando necessário */
+    overflow-y: auto;
+    overflow-x: hidden;
+
+    /* Estilo opcional para a aparência da barra de rolagem */
+    scrollbar-width: auto; /* Largura da barra de rolagem (pode ser 'thin', 'auto' ou 'none') */
+    scrollbar-color: #000000 #f5f5f5; /* Cor da barra de rolagem (seta, fundo) */
+}
+
+.image-commu-first {
+    width: 50vw;
+    height: 60vh;
+    border-radius: 15px;
+    border: 3px solid #148999;
+    box-shadow: 5px 5px 10px rgb(121, 124, 124);
+}
+
+.touch {
+    cursor: pointer;
+}
+
+.touch2:hover {
+    z-index: 1;
+    transform: scale(1.1);
+}
+
+.content-second {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-left: 30px;
+    box-sizing: content-box;
+    flex-direction: column;
+    position: relative;
+}
+
+.menu {
+    display: none;
+}
+
+#botao-responsive {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 2vw;
+}
+
+@media (max-width: 1130px) {
+    #botao-responsive {
+        display: none;
+    }
+
+    .person_info {
+        display: none;
+    }
+
+    .menu {
+        padding: 2px;
+        background-color: #df1111;
+        height: 40px;
+        width: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 15px;
+        cursor: pointer;
+        margin-left: -3rem;
+    }
+
+    .teror {
+        position: absolute;
+    }
+
+    .menu:hover {
+        transform: scale(1.1);
+        transition: 1s;
+    }
+
+    .horror {
+        position: absolute;
+        left: 20%;
+    }
+
+    section {
+        display: flex;
+        flex-direction: column;
+        transition: 1.3s;
+    }
+
+    .image-commu {
+        width: 50%;
+        height: 10%;
+    }
+
+    .image-commu-first {
+        height: 150px;
+        width: 250px;
+        margin-bottom: 1rem;
+    }
+
+    .image-commu-first:hover {
+        transform: scale(1.1);
+        z-index: 1;
+    }
+
+    .content-second,
+    .content-first,
+    .image-community {
+        width: 100%;
+        margin: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}

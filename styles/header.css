@@ -1,0 +1,80 @@
+.options-nav{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 6px;
+    background-color: #fff;
+    padding: 0.5rem;
+    position: absolute;
+    left: 60px;
+    top: 50px;
+}
+
+button{
+    all: unset;
+}
+
+a{
+    all: unset;
+    color: var(--color-dark1);
+}
+
+.options-nav > a {
+    background-color: transparent;
+    color: var(--color-dark1);
+    border: 1px solid var(--color-dark1);
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+}
+
+.options-nav > a:hover{
+    background-color: #efefef;
+}
+
+#box-fil{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 6px;
+    background-color: #fff;
+    padding: 0.5rem;
+    position: absolute;
+    left: 210px;
+    top: 50px;
+}
+
+.filter-nav > a {
+    background-color: transparent;
+    color: var(--color-dark1);
+    border: 1px solid var(--color-dark1);
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+}
+
+.filter-nav > a:hover{
+    background-color: #efefef;
+}
+
+#box-cat{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 6px;
+    background-color: #fff;
+    padding: 0.5rem;
+    position: absolute;
+    left: 365px;
+    top: 50px;
+}
+
+.category-nav > a {
+    background-color: transparent;
+    color: var(--color-dark1);
+    border: 1px solid var(--color-dark1);
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+}
+
+.category-nav > a:hover{
+    background-color: #efefef;
+}

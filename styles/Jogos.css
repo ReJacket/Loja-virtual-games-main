@@ -1,0 +1,327 @@
+:root{
+    --color-white: #fff;
+    --color-dark1: #272727; 
+} 
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+}
+
+.btn{
+    color: rgb(84, 84, 228);
+    border-color: rgb(84, 84, 228);
+}
+
+
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    color: var(--color-white);
+    background-image: url(../img/Background-web.png);
+    height: 100vh;
+    width: 100vw;
+
+    background-repeat: no-repeat;
+    background-size: cover;
+    overflow: hidden;
+
+}
+
+.img_logo_header{
+    height: 30px;
+}
+
+main{
+    display: flex;
+    align-items: center;
+    width: 100vw;
+    margin: 15vh 10vw;
+    display: flex;
+    z-index: 0;
+    position: relative;
+    flex-direction: row;
+    gap: 5vw;
+}
+
+img {
+    height: 50px;
+}
+
+.img2{
+    height: 150px;
+    opacity: 100%;
+}
+
+.pesquisa{
+    display: flex;
+    align-items: center;
+    flex-direction: row-reverse;
+    position: relative;
+    
+}
+
+.pesquisa input {
+    position: relative;
+    width: 35vw;
+    height: 30px;
+    padding: 1rem;
+    border-radius: 12px;
+}
+
+.pesquisa i {
+    position: absolute;
+    margin-right: 10px;
+}
+
+.person_info {
+    width: 20vw;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.picture {
+    font-size: 2.5em;
+}
+
+.button {
+    font-size: 1.5em;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.img {
+    width: 90vh;
+    height: 60vh;
+    display: flex;
+    align-items: center;
+    border-radius: 1rem;
+    border-style: solid ;
+}
+
+/* .container-game{
+    position: relative;
+}
+
+
+
+.description-game{
+    position: absolute;
+    margin-bottom: 10vh;
+/* } */
+
+.box-games{
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+
+}
+
+ .container-game{
+    /* background-color: rgb(214, 214, 214); */
+    width: 50vw;
+    height: 60vh;
+    position: relative;
+    z-index: 0;
+
+ }
+
+ .container-game img{
+    width: 100%;
+    
+    
+ }
+
+.card-games{
+    background-color: #272727;
+    display: flex;
+    height: 90px;
+    width: 300px;
+    align-items: center;
+    flex-direction: row;
+    border-radius: 15px;
+    cursor: pointer;
+}
+.card-games img{
+    height: 85px;
+    width: 120px;
+    border-radius: 15px;
+}
+.card-games p{
+    margin-left: 2vw;
+}
+
+.card-games:hover{
+    z-index: 1;
+    transform: scale(1.1);
+}
+.description-game{
+    background-color: #494848;
+    width: 280px;
+    height: 390px;
+    position: absolute;
+    z-index: 1;
+    right: 20px;
+    margin-top: -55vh;
+    border-radius: 2vw;
+    font-family: sans-serif;
+    font-size: 20px;
+    opacity: 90%;
+    text-align: center;
+}
+.name-principal-game{
+    display: none;
+}
+
+@media(max-width:800px){
+    body{
+        margin: 0;
+    }
+    .description-game{
+        display: none;
+    }
+    main{
+        display: flex;
+        flex-direction: column;
+        margin: 0;
+        align-items: center;
+        justify-content: center;
+
+    }
+    .img, .container, .container-game {
+        height: 170px;
+        margin-top: 8vh;
+    }
+    .img, .container, .container-game:hover{
+        cursor: pointer;
+        z-index: 1;
+        transform: scale(1.1);
+    }
+    .name-principal-game{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 75px;
+        margin-bottom: -70px;
+    }
+}
+
+
+/* .container-cod{
+    background-color: rgb(161, 156, 156);
+    width: 60vh;
+    position: absolute;
+    left: 1250px;
+    height: auto;
+    display: flex;
+    border-radius: 30px ;
+    opacity: 90%;
+    top: 20%;
+    
+    
+}
+
+.container-cod p{
+    font-size: 30px;
+    margin-top: 5%;
+    margin-left: 5%;
+    font-family:sans-serif ;
+}
+
+.container-cod img {
+    width: 25vh;
+    height: 12vh;
+    margin-right: 20px; 
+    border-radius: 30px;
+}
+
+
+.container-reforger{
+    background-color: rgb(190, 186, 186);
+    width: 55vh;
+    position: fixed;
+    left: 1250px;
+    height: auto;
+    display: flex;
+    border-radius: 20px ;
+    top: 350px;
+    border-radius: 30px;
+    opacity: 90%;
+    
+}
+
+.container-reforger img{
+    width: 25vh;
+    height: 12vh;
+    margin-right: 20px; 
+    border-radius: 30px;
+}
+
+.container-reforger p{
+    font-size: 30px;
+    text-align: center;
+    margin-top: 7%;
+    margin-left: 5%;
+    font-family:sans-serif ;
+    
+}
+
+.container-gta{
+    background-color: rgb(161, 156, 156);
+    width: 55vh;
+    height: auto;
+    position: fixed;
+    display: flex;
+    border-radius: 20px ;
+    top: 500px;
+    border-radius: 30px;
+    left: 1250px;
+}
+
+.container-gta img{
+    width: 25vh;
+    height: 12vh;
+    margin-right: 20px; 
+    border-radius: 30px;
+}
+
+.container-gta p{
+    font-size: 26px;
+    margin-top: 7%;
+    margin-left: 4%;
+    font-family:sans-serif ; */
+/* } */
+/* 
+.container-under{
+    background-color: rgb(161, 156, 156);
+    display: flex;
+    position: absolute;
+    height: auto;
+    left: 1250px;
+    top: 670px;
+    right: 540px;
+    height: auto;
+    width: 55vh;
+    border-radius: 30px;
+    
+}
+
+.container-under img{
+    width: 25vh;
+    height: 12vh;
+    margin-right: 20px; 
+    border-radius: 30px;
+}
+
+.container-under p{
+    font-size: 35px;
+    margin-top: 6%;
+    margin-left: 9%;
+    font-family:sans-serif ;
+} */
+    
+
+

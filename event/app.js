@@ -46,7 +46,7 @@ function showSlider() {
     clearInterval(refreshInterval);
     refreshInterval = setInterval(() => {
         next.click();
-    }, 10000)
+    }, 17500)
 }
 
 // Click na imagem dos jogos

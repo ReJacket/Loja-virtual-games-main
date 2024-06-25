@@ -33,6 +33,10 @@ body {
     overflow: hidden; /* Oculta conteúdo que extrapola os limites do container */
     border-radius: 10px; /* Borda arredondada */
     box-shadow: 0 0 10px 0 rgb(206, 206, 206); /* Sombra ao redor do container */
+    scrollbar-width: auto;
+    scrollbar-color: rgb(92, 91, 91) transparent;
+    overflow-y: auto;
+    overflow-x: hidden;
 }
 
 /* Estilos para o formulário dentro do container */
@@ -73,6 +77,7 @@ form {
 
 /* Estilos para inputs de texto e senha */
 input[type="text"],
+input[type="number"],
 input[type="password"] {
     border: none; /* Sem borda */
     margin-top: 40px; /* Margem superior de 40px */
@@ -82,6 +87,7 @@ input[type="password"] {
     width: 100%; /* Largura total */
 }
 
+
 /* Estilos para o botão de submit */
 button[id="btnLogin"] {
     background: #660fc8; /* Cor de fundo do botão de submit */
@@ -90,7 +96,7 @@ button[id="btnLogin"] {
     width: 100%; /* Largura total */
     border: none; /* Sem borda */
     outline: none; /* Sem outline (borda de foco) */
-    padding: 8px 0 8px 15px; /* Padding interno */
+    padding: 8px 10px 8px 15px; /* Padding interno */
     font-size: 15px; /* Tamanho da fonte */
     margin-top: 40px; /* Margem superior de 40px */
     cursor: pointer; /* Cursor como ponteiro */
@@ -104,14 +110,28 @@ button[id="btnVoltar"] {
     width: 50%; /* Largura total */
     border: none; /* Sem borda */
     outline: none; /* Sem outline (borda de foco) */
-    padding: 8px 0 8px 15px; /* Padding interno */
+    padding: 8px 0px 8px 50px; /* Padding interno */
     font-size: 15px; /* Tamanho da fonte */
     margin-top: 15px; /* Margem superior de 40px */
     cursor: pointer; /* Cursor como ponteiro */
     display: flex;
     position: relative;
-    left: 10px;
+    left: 72px;
 }
+button[id="btnCadastro"] {
+    background: #660fc8; /* Cor de fundo do botão de submit */
+    color: white; /* Cor do texto do botão de submit */
+    border-radius: 30px; /* Borda arredondada */
+    width: 100%; /* Largura total */
+    border: none; /* Sem borda */
+    outline: none; /* Sem outline (borda de foco) */
+    padding: 8px 10px 8px 15px; /* Padding interno */
+    font-size: 15px; /* Tamanho da fonte */
+    margin-top: 20px; /* Margem superior de 40px */
+    margin-bottom: 20px; /* Margem superior de 40px */
+    cursor: pointer; /* Cursor como ponteiro */
+}
+
 
 /* Estilos para a div .divCheck */
 .divCheck {
@@ -150,3 +170,4 @@ i {
 .iPassword2 {
     top: 190px; /* Distância do topo */
 }
+

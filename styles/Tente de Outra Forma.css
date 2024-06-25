@@ -24,7 +24,7 @@ body {
 .container {
     background-color: whitesmoke; /* Cor de fundo do container */
     padding: 6px; /* Padding interno de 6px */
-    width: 350px; /* Largura do container */
+    width: 350px; /* Largura do container */ 
     height: 450px; /* Altura do container */
     display: flex; /* Usa flexbox para layout */
     flex-direction: column; /* Direção da flexbox: coluna */
@@ -34,10 +34,12 @@ body {
     border-radius: 10px; /* Borda arredondada */
     box-shadow: 0 0 10px 0 rgb(206, 206, 206); /* Sombra ao redor do container */
     scrollbar-width: auto;
-    scrollbar-color: rgb(92, 91, 91) transparent;
+    scrollbar-color: rgb(0, 0, 0) transparent;
     overflow-y: auto;
     overflow-x: hidden;
 }
+
+
 
 /* Estilos para o formulário dentro do container */
 form {

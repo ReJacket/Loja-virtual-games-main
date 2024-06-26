@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login</title>
+  <link rel="stylesheet" href="../styles/Tente de Outra Forma.css">
+  <script src="https://kit.fontawesome.com/cf6fa412bd.js" crossorigin="anonymous"></script>
+  <style>
+    .input-container {
+      position: relative;
+      margin-bottom: 0;
+      /* Ajuste conforme necessário */
+    }
+
+    .input-container input {
+      padding-left: 40px;
+      /* Espaço para o ícone */
+    }
+
+    .input-container .input-icon {
+      position: absolute;
+      top: 76%;
+      transform: translateY(-50%);
+      left: 10px;
+      /* Ajuste conforme necessário */
+      color: #000000;
+      /* Cor dos ícones */
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="buttonsForm">
+      <div class="btnColor"></div>
+      <button id="btnSignin">Login</button>
+      <button id="btnSignup">Cadastro</button>
+    </div>
+
+    <form id="signin">
+      <input type="text" placeholder="Email" required />
+      <i class="fas fa-envelope iEmail"></i>
+      <input type="password" placeholder="Senha" required />
+      <i class="fas fa-lock iPassword"></i>
+      <div class="divCheck">
+        <input type="checkbox" />
+        <span>Relembrar Senha</span>
+      </div>
+      <button id="btnLogin" type="submit">Login</button>
+
+      <button id="btnVoltar" href="index.html" type="submit">Voltar</button>
+    </form>
+    
+
+
+    <form id="signup">
+      <!-- Nome -->
+      <div class="input-container">
+        <i class="fas fa-user input-icon"></i>
+        <input type="text" placeholder="Nome" required />
+      </div>
+
+      <!-- Usuário -->
+      <div class="input-container">
+        <i class="fas fa-user input-icon"></i>
+        <input type="text" placeholder="Usuário" required />
+      </div>
+
+      <!-- Email -->
+      <div class="input-container">
+        <i class="fas fa-envelope input-icon"></i>
+        <input type="text" placeholder="Email" required />
+      </div>
+
+      <!-- Telefone -->
+      <div class="input-container">
+        <i class="fas fa-phone input-icon"></i>
+        <input type="number" placeholder="Telefone" required />
+      </div>
+
+      <!-- Senha -->
+      <div class="input-container">
+        <i class="fas fa-lock input-icon"></i>
+        <input type="password" placeholder="Senha" required />
+      </div>
+
+      <!-- Confirmar Senha -->
+      <div class="input-container">
+        <i class="fas fa-lock input-icon"></i>
+        <input type="password" placeholder="Confirmar Senha" required />
+      </div>
+
+      <!-- Termos -->
+      <div class="divCheck">
+        <input type="checkbox" required />
+        <span>Termos</span>
+      </div>
+      <button id="btnCadastro" type="submit">Cadastrar-se</button>
+    </form>
+  </div>
+
+  <script src="../event/tente de Outra forma.js"></script>
+</body>
+
+</html>

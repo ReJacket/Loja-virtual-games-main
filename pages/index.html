@@ -24,7 +24,7 @@
             <li class="dropdown">
                 <a href="blog.html" class="dropbtn">Categorias </a>
                 <ul class="dropdown-content">
-                    <li><a href="Ação.html">Ação</a></li>
+                    <li><a href="Ação.html">> Ação</a></li>
                     <li><a href="aventura.html">Aventura</a></li>
                     <li><a href="Casual.html">Casual</a></li>
                     <li><a href="Multplayer.html">multiplayer</a></li>
@@ -38,16 +38,10 @@
             <li><a href="register.html">Perfil</a></li>
 
         </ul>
-        <div class="search">
-            <div class="search-container">
-                <input type="text" id="searchInput" placeholder="Pesquisar...">
-                <button id="searchButton">
-                    <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
-                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z" />
-                    </svg>
-                </button>
-            </div>
+        <div class="InputContainer">
+            <input placeholder="Search.." id="input" class="input" name="text" type="text">
+
+        </div>
     </header>
     <!-- Rest of the content -->
     <script src="app.js"></script>
@@ -61,11 +55,11 @@
     <!-- list Items -->
     <div class="list">
         <div class="item active">
-            <section>
-                <video id="slider1" controls>
-                    <source src="../video/Counter-Strike 2 - Official Launch Trailer.mp4" type="video/mp4">
-                </video>
-            </section>
+        <section>
+            <video id="slider1" autoplay muted loop>
+                <source src="../video/Counter-Strike 2 - Official Launch Trailer.mp4" type="video/mp4">
+            </video>
+        </section>
             <div class="content">
                 <p>COSMIC</p>
                 <h2>Counter Strike:Global ofensive</h2>
@@ -152,10 +146,8 @@
         </div>
         <div class="item">
             <section>
-                <video id="slider1" autoplay loop>
-                    <source
-                        src="../video/The Last of Us Part II - PlayStation Experience 2016： Reveal Trailer ｜ PS4.mp4"
-                        type="video/mp4">
+                <video id="slider1" autoplay muted loop>
+                    <source src="../video/The Last of Us Part II - PlayStation Experience 2016： Reveal Trailer ｜ PS4.mp4" type="video/mp4">
                 </video>
             </section>
             <div class="content">

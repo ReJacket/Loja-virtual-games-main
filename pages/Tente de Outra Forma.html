@@ -4,21 +4,46 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tentado De Outra Forma</title>
+    <title>Document</title>
     <link rel="stylesheet" href="../styles/Tente de Outra Forma.css">
-    <link rel="shortcut icon" href="../img/favicon.ico">
+    <script src="https://kit.fontawesome.com/cf6fa412bd.js"></script>
 </head>
 
 <body>
-    <main>
-        <div class="novo-container">
-            <div class="container-cobrindo">
-                <!-- Conteúdo do novo container -->
+    <div class="Container">
+        <div class="buttonsForm">
+            <div class="btnolor">
+                <button id="btnSingIn">Login</button>
+                <button id="btnSingIn">cadastrar</button>
             </div>
+
+            <form id="login">
+                <input type="text" placeholder="Email" required>
+                <i class="fas fa-envelope iEmail"></i>
+                <input type="password" placeholder="Senha" required>
+                <i class="fas fa-lock iPassword"></i>
+                <div class="divCheck">
+                    <input type="checkbox">
+                    <span>Remember Password</span>
+                </div>
+                <button type="submit">Login</button>
+            </form>
+
+            <form id="login">
+                <input type="text" placeholder="Email" required>
+                <i class="fas fa-envelope iEmail"></i>
+                <input type="password" placeholder="Email" required>
+                <i class="fas fa-lock iPassword2"></i>
+
+                <div class="divCheck">
+                    <input type="checkbox">
+                    <span>Terms</span>
+                </div>
+                <button type="submit">Login</button>
+            </form>
         </div>
-        <a href="#"><button class="Telefone" style="color:#5044ac">SMS</button></a>
-        <a href="../pages/esqueceu_senha.html"><button class="EsqueceuConta" style="color:#5044ac">Esqueceu a Conta</button></a>
-    </main>
+    </div>
+    <script src="../event/texta de outra forma.js"></script>
 </body>
 
 </html>

@@ -1,0 +1,175 @@
+/* Importa as fontes 'Poppins', 'Roboto' e 'Source Sans Pro' do Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins&family=Roboto:wght@100;300;400;500;700;900&family=Source+Sans+Pro:wght@200;300;400;600;700;900&display=swap');
+
+/* Define estilos globais para todos os elementos */
+* {
+    margin: 0; /* Define margem zero para todos os elementos */
+    padding: 0; /* Define padding zero para todos os elementos */
+    box-sizing: border-box; /* Garante que o tamanho total do elemento inclui padding e border */
+    font-family: 'Poppins', sans-serif; /* Define 'Poppins' como fonte padrão */
+}
+
+/* Estilos para o corpo (body) da página */
+body {
+    background-color: rgb(66, 75, 131); /* Cor de fundo azul escuro */
+    width: 100vw; /* Largura igual à largura da viewport */
+    height: 100vh; /* Altura igual à altura da viewport */
+    display: flex; /* Usa flexbox para layout */
+    align-items: center; /* Centraliza verticalmente os elementos */
+    justify-content: center; /* Centraliza horizontalmente os elementos */
+    background-image: radial-gradient(circle, #000000, #411c859a); /* Gradiente radial como imagem de fundo */
+}
+
+/* Estilos para o container principal */
+.container {
+    background-color: whitesmoke; /* Cor de fundo do container */
+    padding: 6px; /* Padding interno de 6px */
+    width: 350px; /* Largura do container */ 
+    height: 450px; /* Altura do container */
+    display: flex; /* Usa flexbox para layout */
+    flex-direction: column; /* Direção da flexbox: coluna */
+    align-items: center; /* Centraliza verticalmente os elementos */
+    position: relative; /* Posição relativa para posicionar elementos filhos */
+    overflow: hidden; /* Oculta conteúdo que extrapola os limites do container */
+    border-radius: 10px; /* Borda arredondada */
+    box-shadow: 0 0 10px 0 rgb(206, 206, 206); /* Sombra ao redor do container */
+    scrollbar-width: auto;
+    scrollbar-color: rgb(0, 0, 0) transparent;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+
+
+/* Estilos para o formulário dentro do container */
+form {
+    position: absolute; /* Posição absoluta para sobrepor outros elementos */
+    margin-top: 80px; /* Margem superior de 80px */
+    transition: .5s; /* Transição de 0.5 segundos para animações */
+    width: 300px; /* Largura do formulário */
+    height: 400px; /* Altura do formulário */
+}
+
+/* Estilos para o formulário de botões */
+.buttonsForm {
+    margin-top: 40px; /* Margem superior de 40px */
+    position: relative; /* Posição relativa para posicionar elementos filhos */
+    border-radius: 30px; /* Borda arredondada */
+    box-shadow: 0 0 7px 0 blueviolet; /* Sombra nos botões */
+}
+
+/* Estilos para os botões dentro de .buttonsForm */
+.buttonsForm button {
+    cursor: pointer; /* Cursor como ponteiro */
+    background: transparent; /* Fundo transparente */
+    border: none; /* Sem borda */
+    position: relative; /* Posição relativa para posicionamento */
+    padding: 10px 29px; /* Padding interno */
+}
+
+/* Estilos para o botão colorido .btnColor */
+.btnColor {
+    position: absolute; /* Posição absoluta para sobrepor outros elementos */
+    width: 108px; /* Largura do botão */
+    height: 100%; /* Altura igual à altura do pai */
+    background: linear-gradient(to right, #5956e9, #a963f8); /* Gradiente linear como fundo do botão */
+    border-radius: 30px; /* Borda arredondada */
+    transition: .3s; /* Transição de 0.3 segundos para animações */
+}
+
+/* Estilos para inputs de texto e senha */
+input[type="text"],
+input[type="number"],
+input[type="password"] {
+    border: none; /* Sem borda */
+    margin-top: 40px; /* Margem superior de 40px */
+    border-radius: 60px; /* Borda arredondada */
+    padding: 8px 0 8px 35px; /* Padding interno */
+    outline: none; /* Sem outline (borda de foco) */
+    width: 100%; /* Largura total */
+}
+
+
+/* Estilos para o botão de submit */
+button[id="btnLogin"] {
+    background: #660fc8; /* Cor de fundo do botão de submit */
+    color: white; /* Cor do texto do botão de submit */
+    border-radius: 30px; /* Borda arredondada */
+    width: 100%; /* Largura total */
+    border: none; /* Sem borda */
+    outline: none; /* Sem outline (borda de foco) */
+    padding: 8px 10px 8px 15px; /* Padding interno */
+    font-size: 15px; /* Tamanho da fonte */
+    margin-top: 40px; /* Margem superior de 40px */
+    cursor: pointer; /* Cursor como ponteiro */
+}
+
+/* Estilos para o botão de submit */
+button[id="btnVoltar"] {
+    background: #660fc8; /* Cor de fundo do botão de submit */
+    color: white; /* Cor do texto do botão de submit */
+    border-radius: 30px; /* Borda arredondada */
+    width: 50%; /* Largura total */
+    border: none; /* Sem borda */
+    outline: none; /* Sem outline (borda de foco) */
+    padding: 8px 0px 8px 50px; /* Padding interno */
+    font-size: 15px; /* Tamanho da fonte */
+    margin-top: 15px; /* Margem superior de 40px */
+    cursor: pointer; /* Cursor como ponteiro */
+    display: flex;
+    position: relative;
+    left: 72px;
+}
+button[id="btnCadastro"] {
+    background: #660fc8; /* Cor de fundo do botão de submit */
+    color: white; /* Cor do texto do botão de submit */
+    border-radius: 30px; /* Borda arredondada */
+    width: 100%; /* Largura total */
+    border: none; /* Sem borda */
+    outline: none; /* Sem outline (borda de foco) */
+    padding: 8px 10px 8px 15px; /* Padding interno */
+    font-size: 15px; /* Tamanho da fonte */
+    margin-top: 20px; /* Margem superior de 40px */
+    margin-bottom: 20px; /* Margem superior de 40px */
+    cursor: pointer; /* Cursor como ponteiro */
+}
+
+
+/* Estilos para a div .divCheck */
+.divCheck {
+    margin: 10px 0 0 5px; /* Margem */
+    width: 80%; /* Largura 80% */
+    font-size: 13px; /* Tamanho da fonte */
+}
+
+/* Estilos para os elementos com id "signin" e "signup" */
+#signin {
+    left: 25px; /* Distância da esquerda */
+}
+
+#signup {
+    left: 450px; /* Distância da esquerda */
+}
+
+/* Estilos para elementos <i> */
+i {
+    position: absolute; /* Posição absoluta */
+    left: 0; /* Distância da esquerda */
+    padding: 10px 10px; /* Padding interno */
+}
+
+/* Estilos para .iEmail */
+.iEmail {
+    top: 40px; /* Distância do topo */
+}
+
+/* Estilos para .iPassword */
+.iPassword {
+    top: 114px; /* Distância do topo */
+}
+
+/* Estilos para .iPassword2 */
+.iPassword2 {
+    top: 190px; /* Distância do topo */
+}
+

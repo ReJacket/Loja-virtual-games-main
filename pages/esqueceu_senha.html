@@ -4,65 +4,85 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Esqueceu Senha</title>
+    <title>Assistência Cosmic</title>
 
     <link rel="stylesheet" href="../styles/esqueceu_conta.css">
     <link rel="shortcut icon" href="../img/favicon.ico">
+    <style>
+
+    </style>
 </head>
 
 <body>
     <main>
         <div class="text-main">
-            <h1>COSMIC DRAGONS</h1>
-            <h3>Para que possamos ajuda-lo peço que informe seu email</h3>
+            <h1>RECUPERAÇÃO</h1>
+            <h3>Para que possamos ajudá-lo, pedimos que informe seu email</h3>
         </div>
-        <form>
-            <label for="email" id="email"></label>
-            <input type="email" placeholder="Email" maxlength="30">
+        <form id="emailForm" onsubmit="validateEmail(event)">
+            <input type="email" id="emailInput" placeholder="Email" maxlength="30">
             <input type="submit" value="Login" id="login">
         </form>
         <a href="../pages/choice.html"><button>Voltar</button></a>
         <div id="redirecionamento"></div>
+        <p id="errorMessage" style="color: red;"></p>
     </main>
     <script>
         // Variável para rastrear se o botão "Tente de Outra Forma" já foi criado
         let buttonCreated = false;
 
-        // Adiciona um ouvinte de evento ao botão de login
-        document.getElementById("login").addEventListener("click", function(event) {
-            // Adiciona um atraso de 280 milissegundos antes de executar a função de verificação do e-mail
-            setTimeout(function() {
-                // Obtém o valor do campo de e-mail e remove espaços em branco
-                var emailInput = document.querySelector('input[type="email"]');
-                var email = emailInput.value.trim();
-
-                // Verifica se o campo de e-mail está vazio ou se o e-mail não é válido
-                if (email === '' || !isValidEmail(email)) {
-                    // Impede o envio do formulário
-                    event.preventDefault();
-
-                    // Verifica se o botão já foi criado
-                    if (!buttonCreated) {
-                        // Cria um novo elemento de âncora
-                        var novoLink = document.createElement("a");
-
-                        // Define os atributos do novo link, como texto, href e classes
-                        novoLink.innerHTML = "Tente de Outra Forma";
-                        novoLink.href = "#"; // Adicione o URL desejado aqui
-                        novoLink.classList.add("classe-adicional"); // Adicione classes CSS adicionais, se necessário!
-
-                        // Encontra o elemento do botão "Voltar"
-                        var botaoVoltar = document.querySelector("a[href='../pages/choice.html']");
-
-                        // Adiciona o novo link após o botão "Voltar"
-                        botaoVoltar.parentNode.insertBefore(novoLink, botaoVoltar.nextSibling);
-
-                        // Atualiza a variável para indicar que o botão foi criado
-                        buttonCreated = true;
-                    }
-                }
-            }, 280); // Atraso de 280 milissegundos
+        // Adiciona um ouvinte de evento ao pressionar a tecla "Enter" no campo de email
+        document.getElementById('emailInput').addEventListener('keydown', function(event) {
+            if (event.key === 'Enter') {
+                validateEmail(event);
+            }
         });
+
+        // Adiciona um ouvinte de evento ao pressionar a tecla "Esc"
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                // Simula o clique no botão "Voltar"
+                document.querySelector('a[href="../pages/choice.html"] button').click();
+            }
+        });
+
+        // Função para validar o email
+        function validateEmail(event) {
+            // Previne o comportamento padrão do formulário
+            event.preventDefault();
+
+            // Obtém o valor do campo de e-mail e remove espaços em branco
+            var emailInput = document.getElementById('emailInput');
+            var email = emailInput.value.trim();
+
+            // Verifica se o campo de e-mail está vazio ou se o e-mail não é válido
+            if (email === '' || !isValidEmail(email)) {
+                // Exibe mensagem de erro
+                document.getElementById('errorMessage').textContent = 'Por favor, insira um email válido.';
+
+                // Verifica se o botão "Tente de Outra Forma" já foi criado
+                if (!buttonCreated) {
+                    // Cria um novo elemento de âncora
+                    var novoLink = document.createElement("a");
+
+                    // Define os atributos do novo link, como texto e href
+                    novoLink.innerHTML = "Tente de Outra Forma";
+                    novoLink.href = "../pages/tente_outra_forma.html"; // URL desejado para a página "Tente de Outra Forma"
+
+                    // Encontra o elemento do botão "Voltar"
+                    var botaoVoltar = document.querySelector("a[href='../pages/choice.html']");
+
+                    // Adiciona o novo link após o botão "Voltar"
+                    botaoVoltar.parentNode.insertBefore(novoLink, botaoVoltar.nextSibling);
+
+                    // Atualiza a variável para indicar que o botão foi criado
+                    buttonCreated = true;
+                }
+            } else {
+                // Caso o email seja válido, continue com o envio do formulári
+                document.getElementById('emailForm').submit();
+            }
+        }
 
         // Função para verificar se um e-mail é válido
         function isValidEmail(email) {

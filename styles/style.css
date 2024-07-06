@@ -110,9 +110,9 @@ header .menu {
 .dropdown-content {
     display: none;
     position: absolute;
-    background: linear-gradient(rgba(255, 0, 255, 0.404), rgba(255, 0, 0, 0.308));
-    min-width: 120px;
-    box-shadow: 0px 8px 16px 0px rgba(255, 0, 34, 0.767);
+    background: linear-gradient(rgba(255, 0, 119, 0.404), rgba(55, 0, 255, 0.308));
+    min-width: 120px; /* Você pode ajustar essa largura conforme necessário */
+    box-shadow: 0px 8px 16px 0px rgba(5, 2, 3, 0.767);
     z-index: 1;
     padding: 20px;
     border-radius: 20px;
@@ -124,6 +124,8 @@ header .menu {
     text-decoration: none;
     display: block;
     text-align: left;
+    white-space: nowrap; /* Evita quebra de linha no texto */
+    width: 150px; /* Definindo uma largura fixa */
 }
 
 .dropdown-content li:hover {
@@ -133,6 +135,7 @@ header .menu {
 .dropdown:hover .dropdown-content {
     display: block;
 }
+
 
 /* Clear floats */
 .menu:after {

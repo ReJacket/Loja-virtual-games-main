@@ -1,20 +1,16 @@
 <?php
-class Database {
-    private $host = 'localhost:3008';
-    private $dbname = '';
-    private $username = 'root';
-    private $password = '';
-    private $conn;
+class Conexao {
+    public static function conectar() {
+        $host = 'localhost:3008';
+        $dbname = 'Banco_Cosmic';
+        $usuario = 'root';
+        $senha = '';  
 
-    public function connect() {
-        $this->conn = null;
         try {
-            $this->conn = new PDO('mysql:host=' . $this->host . ';dbname=' . $this->dbname, $this->username, $this->password);
-            $this->conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            return new PDO("mysql:host=$host;dbname=$dbname", $usuario, $senha);
         } catch (PDOException $e) {
-            echo 'Erro na conexão: ' . $e->getMessage();
+            die("Erro na conexão: " . $e->getMessage());
         }
-        return $this->conn;
     }
 }
 ?>

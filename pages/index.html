@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>COSMIC DRAGON</title>
     <link rel="stylesheet" href="../styles/style.css">
+    <link rel="stylesheet" href="../styles/price.css">
     <link rel="stylesheet" href="video.css">
     <link rel="shortcut icon" href="../img/favicon.ico" type="image/x-icon">
 </head>
@@ -18,8 +19,8 @@
             <span>CosmicDragon</span>
         </div>
         <ul class="menu">
-            <li><a href="register.html">Cadastro</a></li>
-            <li><a href="Login 2.0.html">Login</a></li>
+        
+            <li><a href="Login 2.0.html">Cadastro/Login</a></li>
             <li><a href="login.html">Loja virtual</a></li>
             </li>
             <li class="dropdown">
@@ -65,10 +66,14 @@
                 <p>COSMIC</p>
                 <h2>Counter Strike:Global ofensive</h2>
                 <p>
+                    <div id="price-csgo"></div>
                     O CS: GO apresenta-se com novos mapas, personagens, armas e ainda oferece versões atualizadas de
                     conteúdo do CS clássico (de_dust, etc.). Para além disso, o CS:GO introduz novos modos de jogo,
                     matchmaking, tabelas de classificação e muito mais.
-                </p>
+                    <a href="https://store.steampowered.com/app/730/Counter_Strike_Global_Offensive/" class="price">Steam: R$ xx,xx</a>
+                    <a href="https://www.gog.com/game/counter_strike" class="price">GOG: R$ xx,xx</a>
+                    <a href="https://www.epicgames.com/store/en-US/p/counter-strike-global-offensive" class="price">Epic: R$ xx,xx</a>
+
             </div>
         </div>
         <div class="item">
@@ -92,6 +97,8 @@
                     Armado com armas estranhas e magia pagã proibida, cace uma bruxa poderosa que detém a chave da sua
                     salvação. Witchfire é um jogo de tiro em primeira pessoa de fantasia sombria dos criadores de
                     Painkiller, Bulletstorm e The Vanishing of Ethan Carter.
+                    <a href="https://store.steampowered.com/app/394510/Witchfire/" class="price" id="price-witchfire">$0.00</a> <!-- Preço como link -->
+                    <p id="price-witchfire">Carregando preço...</p>
                 </p>
             </div>
         </div>
@@ -113,6 +120,7 @@
                 <p>COSMIC</p>
                 <h2>Cyberpunk</h2>
                 <p>
+                    <button class="price" >$39.99</button>
                     Mergulhe no universo de Cyberpunk, desde o enredo original de Cyberpunk 2077 e sua emocionante
                     expansão de suspense e espionagem Phantom Liberty até a premiada série de anime Cyberpunk:
                     Mercenários — são inúmeras histórias para descobrir na mortal megalópole de Night City.
@@ -264,100 +272,128 @@
             <img src="../img/CS.jpeg">
             <div class="content">
                 CS:GO
+                <a href="https://store.steampowered.com/app/730/CounterStrike_Global_Offensive/" class="price" id="price-csgo">$14.99</a>
+               
             </div>
         </div>
         <div class="item">
             <img src="https://images5.alphacoders.com/421/thumb-1920-421638.jpg">
             <div class="content">
                 GTA 5
+                <a href="https://store.steampowered.com/app/271590/Grand_Theft_Auto_V/" class="price" id="price-gta5">$29.99</a>
+              
             </div>
         </div>
         <div class="item">
             <img src="../img/Gun.png">
             <div class="content">
                 Witchfire
+                <a href="https://store.steampowered.com/app/394510/Witchfire/" class="price" id="price-witchfire">$0.00</a>
+             
             </div>
         </div>
         <div class="item">
             <img src="../img/lol.jpeg">
             <div class="content">
-                League of legends
+                League of Legends
+                <a href="https://www.leagueoflegends.com/" class="price" id="price-lol">Gratuito</a>
+              
             </div>
         </div>
         <div class="item">
-            <img
-                src="https://cdn1.epicgames.com/offer/77f2b98e2cef40c8a7437518bf420e47/EGS_Cyberpunk2077_CDPROJEKTRED_S1_03_2560x1440-359e77d3cd0a40aebf3bbc130d14c5c7">
+            <img src="https://cdn1.epicgames.com/offer/77f2b98e2cef40c8a7437518bf420e47/EGS_Cyberpunk2077_CDPROJEKTRED_S1_03_2560x1440-359e77d3cd0a40aebf3bbc130d14c5c7">
             <div class="content">
                 Cyberpunk
+                <a href="https://www.cyberpunk.net/" class="price" id="price-cyberpunk">$49.99</a>
+               
             </div>
         </div>
         <div class="item">
             <img src="https://image.api.playstation.com/vulcan/img/rnd/202011/0714/Cu9fyu6DM41JPekXLf1neF9r.png">
             <div class="content">
                 Spider-man
+                <a href="https://www.playstation.com/en-us/games/spider-man/" class="price" id="price-spiderman">$39.99</a>
+              
             </div>
         </div>
         <div class="item">
             <img src="../img/vava.jpeg">
             <div class="content">
                 Valorant
+                <a href="https://playvalorant.com/" class="price" id="price-valorant">Gratuito</a>
+                
             </div>
         </div>
         <div class="item">
-            <img
-                src="https://image.api.playstation.com/vulcan/ap/rnd/202311/1717/827d78b1eb9155e1383cc43bafeb4c900eb7157bf8b1a65a.jpg">
+            <img src="https://image.api.playstation.com/vulcan/ap/rnd/202311/1717/827d78b1eb9155e1383cc43bafeb4c900eb7157bf8b1a65a.jpg">
             <div class="content">
-                The last of us 2
+                The Last of Us 2
+                <a href="https://www.playstation.com/en-us/games/the-last-of-us-part-ii/" class="price" id="price-tlou2">$59.99</a>
+                
             </div>
         </div>
         <div class="item">
             <img src="../img/Dog.jpg">
             <div class="content">
-                Watch dogs 2
+                Watch Dogs 2
+                <a href="https://store.ubisoft.com/us/watch-dogs-2/5a8b9c1f88a7a1190070018b.html" class="price" id="price-watchdogs2">$29.99</a>
+               
             </div>
         </div>
         <div class="item">
             <img src="https://images7.alphacoders.com/105/thumb-1920-1054152.jpg">
             <div class="content">
-                Read dead redemption 2
+                Red Dead Redemption 2
+                <a href="https://www.rockstargames.com/games/reddeadredemption2/" class="price" id="price-rdr2">$59.99</a>
+              
             </div>
         </div>
         <div class="item">
             <img src="https://images2.alphacoders.com/136/thumb-1920-1362771.png">
             <div class="content">
-                Assasin creed
+                Assassin's Creed
+                <a href="https://www.ubisoft.com/en-us/game/assassins-creed/valhalla" class="price" id="price-ac">$59.99</a>
+              
             </div>
         </div>
         <div class="item">
-            <img
-                src="https://image.api.playstation.com/vulcan/ap/rnd/202308/3005/537b5208a8ee42935286a44b3b981da86d976bf54899bf98.jpg">
+            <img src="https://image.api.playstation.com/vulcan/ap/rnd/202308/3005/537b5208a8ee42935286a44b3b981da86d976bf54899bf98.jpg">
             <div class="content">
-                Final fantasy
+                Final Fantasy
+                <a href="https://www.finalfantasy.com/" class="price" id="price-ff">$59.99</a>
+               
             </div>
         </div>
         <div class="item">
-            <img
-                src="https://image.api.playstation.com/vulcan/ap/rnd/202403/1313/237ae1ee7a92b2c1bde935e94d25df86cec444efedd9ee06.jpg">
+            <img src="https://image.api.playstation.com/vulcan/ap/rnd/202403/1313/237ae1ee7a92b2c1bde935e94d25df86cec444efedd9ee06.jpg">
             <div class="content">
-                The finals
+                The Finals
+                <a href="https://www.thefinals.com/" class="price" id="price-finals">$39.99</a>
+               
             </div>
         </div>
         <div class="item">
             <img src="../img/soul.png">
             <div class="content">
                 Lords of the Fallen
+                <a href="https://lordsofthefallen.com/" class="price" id="price-loth">$49.99</a>
+                
             </div>
         </div>
         <div class="item">
             <img src="https://images5.alphacoders.com/132/thumb-1920-1329594.jpeg">
             <div class="content">
-                Sea of stars
+                Sea of Stars
+                <a href="https://sabotagestudio.com/seaofstars/" class="price" id="price-sos">$34.99</a>
+               
             </div>
         </div>
     </div>
-</div>
+    
 
 <script src="../event/app.js"></script>
+<script src="../event/steam.js"></script>
+<script src="../event/navegation.js"></script>
 </body>
 
 </html>

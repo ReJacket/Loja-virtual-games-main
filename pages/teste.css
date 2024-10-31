@@ -1,0 +1,183 @@
+CSS
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body, html {
+    height: 100%;
+    font-family: Arial, sans-serif;
+    overflow: hidden; /* Remove rolagem */
+}
+
+.background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; /* Coloca o vídeo atrás do conteúdo */
+    overflow: hidden;
+}
+
+.background video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Faz o vídeo cobrir toda a tela sem distorção */
+}
+
+.container {
+    position: relative; /* Define um contexto de posicionamento relativo para os filhos */
+    height: 100vh;
+    width: 100vw;
+}
+
+/* Nova caixa box4 */
+/* Nova caixa box4 */
+/* Estilizando a imagem dentro do contêiner .box4 */
+/* Estilizando a nova div no canto superior direito da .box4 */
+
+.right-corner {
+    position: absolute; /* Posicionamento absoluto relativo à .box4 */
+    top: 15px; /* Ajuste do topo */
+    right: 10px; /* Ajuste da direita */
+    padding: 5px; /* Reduz o padding */
+    border-radius: 100%; /* Mantém a div circular */
+    width: 70px; /* Define o tamanho da div, ajustando para a imagem */
+    height: 70px; /* Define o tamanho da div */
+    display: flex; /* Usado para centralizar a imagem dentro da div */
+    justify-content: center; /* Centraliza horizontalmente */
+    align-items: center; /* Centraliza verticalmente */
+}
+
+
+/* Imagem dentro da .right-corner */
+.right-corner img {
+    width: 180%; /* A imagem ocupará 100% da div */
+    height: auto; /* A altura se ajustará automaticamente à largura */
+    border-radius: 40%; /* Mantém a imagem circular */
+    margin-left: -280px;
+    font-family: sans-serif;
+}
+.texto-centralizado {
+    text-align: center; /* Alinha o texto ao centro */
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: medium;
+    color: purple;
+    cursor: pointer;
+}
+
+
+.right-lupa {
+    position: fixed; /* Torna a div fixa na tela */
+    top: 30px; /* Distância do topo da tela */
+    right: 20px; /* Distância da borda direita da tela */
+    background-color: rgba(255, 255, 255, 0.8); /* Fundo semitransparente, se desejado */
+    padding: 10px; /* Espaçamento interno */
+    border-radius: 5px; /* Bordas arredondadas */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); /* Sombra para destacar a div */
+    z-index: 1000; /* Garante que a div fique acima de outros elementos */
+    margin-left: -250px;
+}
+
+
+.bi-search{
+    margin-left: -630px;
+}
+
+.box4 {
+    display: flex; /* Alinha os filhos da .box4 em linha */
+    align-items: center; /* Alinha verticalmente o conteúdo ao centro */
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 30px;
+    border-radius: 25px;
+    text-align: left;
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 1000px;
+    height: auto;
+    color: white;
+    font-size: medium;
+}
+.search-box { 
+    width: 300px; /* Largura da caixa de pesquisa */
+    padding: 10px; /* Espaçamento interno */
+    border: none; /* Remove borda padrão */
+    border-radius: 15px; /* Borda arredondada */
+    margin-left: 50; /* Adicione este valor para mover para a esquerda */
+    margin-right: 500px; /* Espaço entre a caixa de pesquisa e a imagem do usuário */
+    margin-bottom: 10px; /* Espaço abaixo da caixa de pesquisa */
+    font-size: 1rem; /* Tamanho da fonte */
+    color: #333; /* Cor do texto */
+}
+
+.search-box::placeholder {
+    color: #aaa; /* Cor do texto do placeholder */
+}
+
+
+
+.user-image {
+    width: 160px;
+    height: 160px; /* Define uma altura fixa para manter a imagem redonda */
+    border-radius: 50%; /* Torna a imagem circular */
+    margin-right: 20px; /* Espaço entre a imagem e os campos de texto */
+}
+
+
+.user-info-row {
+    display: flex; /* Exibe cada campo em linha */
+    justify-content: flex-start; /* Alinha os campos à esquerda */
+}
+
+
+
+.user-info-row span {
+    font-weight: bold;
+    margin-right:7px;   
+    color: #f0f0f0;
+    font-size: large;
+}
+
+
+/* Estilizando as caixas proporcionais */
+.box1, .box2, .box3 {
+    background-color: rgba(0, 0, 0, 0.7); /* Fundo semitransparente */
+    padding: 30px 2%; /* Usando % para padding */
+    border-radius: 15px;
+    text-align: center;
+    position: absolute;
+    height: 50vh;
+    width: 20%; /* Largura proporcional a 20% da tela */
+}
+
+/* Ajustando a posição da box1 */
+.box1 {
+    top: 45%;
+    left: 10%; /* Margem à esquerda de 10% */
+    transform: translateY(-50%); /* Centraliza no eixo vertical */
+}
+
+/* Ajustando a posição da box2 */
+.box2 {
+    top: 45%;
+    left: 50%; /* Posição no centro da tela */
+    transform: translate(-50%, -50%); /* Centraliza no eixo X e Y */
+}
+
+/* Ajustando a posição da box3 */
+.box3 {
+    top:45%;
+    right: 10%; /* Margem à direita de 10% */
+    transform: translateY(-50%); /* Centraliza no eixo vertical */
+}
+
+
+
+h1 {
+    color: white;
+    font-size: 2rem;
+}

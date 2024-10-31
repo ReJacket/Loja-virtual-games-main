@@ -13,17 +13,17 @@ function fetchPrices() {
   const loadingElement = document.getElementById("loading");
   loadingElement.style.display = "block";
 
-  fetch('url_da_api_de_precos')
-    .then(response => response.json())
-    .then(data => {
-        const pricesDiv = document.querySelector('.price-links');
-        pricesDiv.innerHTML = `
+  fetch("url_da_api_de_precos")
+    .then((response) => response.json())
+    .then((data) => {
+      const pricesDiv = document.querySelector(".price-links");
+      pricesDiv.innerHTML = `
             <a href="${data.steam_link}" class="price">Steam: R$ ${data.steam_price}</a>
             <a href="${data.gog_link}" class="price">GOG: R$ ${data.gog_price}</a>
             <a href="${data.epic_link}" class="price">Epic: R$ ${data.epic_price}</a>
         `;
     })
-    .catch(error => console.error('Erro ao buscar os preços:', error));
+    .catch((error) => console.error("Erro ao buscar os preços:", error));
 
   fetch(url)
     .then((response) => response.json())
@@ -59,6 +59,3 @@ function fetchPrices() {
 
 // Chama a função ao carregar a página
 window.onload = fetchPrices;
-
-
-

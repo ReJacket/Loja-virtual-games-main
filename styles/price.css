@@ -1,0 +1,16 @@
+.price {
+    display: inline-block;
+    background-color: #ffcc00; /* Cor de fundo do botão */
+    color: #000; /* Cor do texto */
+    text-align: center;
+    padding: 10px 15px;
+    border-radius: 20px;
+    text-decoration: none; /* Remove o sublinhado */
+    margin-top: 10px;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.price:hover {
+    background-color: #6200ff; /* Cor ao passar o mouse */
+    transform: scale(1.05); /* Efeito de aumento ao passar o mouse */
+}

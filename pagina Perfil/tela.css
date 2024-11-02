@@ -52,7 +52,7 @@ body, html {
 
 /* Imagem dentro da .right-corner */
 .right-corner img {
-    width: 98%; /* A imagem ocupará 100% da div */
+    width: 110%; /* A imagem ocupará 100% da div */
     height: auto; /* A altura se ajustará automaticamente à largura */
     border-radius: 50%; /* Mantém a imagem circular */
 }

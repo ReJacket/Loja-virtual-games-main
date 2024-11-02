@@ -56,50 +56,35 @@
     
 
 
-    <form id="signup">
-      <!-- Nome -->
+    <form id="signup" action="seu_arquivo_de_cadastro.php" method="POST">
       <div class="input-container">
-        <i class="fas fa-user input-icon"></i>
-        <input type="text" placeholder="Nome" required />
+          <i class="fas fa-user input-icon"></i>
+          <input type="text" name="nome" placeholder="Nome" required />
       </div>
-
-      <!-- Usuário -->
       <div class="input-container">
-        <i class="fas fa-user input-icon"></i>
-        <input type="text" placeholder="Usuário" required />
+          <i class="fas fa-user input-icon"></i>
+          <input type="text" name="usuario" placeholder="Usuário" required />
       </div>
-
-      <!-- Email -->
       <div class="input-container">
-        <i class="fas fa-envelope input-icon"></i>
-        <input type="text" placeholder="Email" required />
+          <i class="fas fa-envelope input-icon"></i>
+          <input type="text" name="email" placeholder="Email" required />
       </div>
-
-      <!-- Telefone -->
       <div class="input-container">
-        <i class="fas fa-phone input-icon"></i>
-        <input type="number" placeholder="Telefone" required />
+          <i class="fas fa-phone input-icon"></i>
+          <input type="number" name="telefone" placeholder="Telefone" required />
       </div>
-
-      <!-- Senha -->
       <div class="input-container">
-        <i class="fas fa-lock input-icon"></i>
-        <input type="password" placeholder="Senha" required />
+          <i class="fas fa-lock input-icon"></i>
+          <input type="password" name="senha" placeholder="Senha" required />
       </div>
-
-      <!-- Confirmar Senha -->
       <div class="input-container">
-        <i class="fas fa-lock input-icon"></i>
-        <input type="password" placeholder="Confirmar Senha" required />
-      </div>
-
-      <!-- Termos -->
-      <div class="divCheck">
-        <input type="checkbox" required />
-        <span>Termos</span>
+          <i class="fas fa-lock input-icon"></i>
+          <input type="password" name="senha_confirmar" placeholder="Confirmar Senha" required />
       </div>
       <button id="btnCadastro" type="submit">Cadastrar-se</button>
-    </form>
+  </form>
+  
+    
   </div>
  
   

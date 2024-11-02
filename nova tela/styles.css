@@ -1,0 +1,171 @@
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #1a1a2e;
+    color: #fff;
+}
+
+/* Top bar */
+.top-bar {
+    display: flex;
+    justify-content: space-between;
+    padding: 15px 30px;
+    background-color: #2a2a3d;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    width: 50px;
+    margin-right: 10px;
+}
+
+.brand-name {
+    font-size: 1.5rem;
+    color: #ad00ff;
+}
+
+.navigation a {
+    color: #fff;
+    margin: 0 10px;
+    text-decoration: none;
+}
+
+.search-bar {
+    display: flex;
+    align-items: center;
+}
+
+.search-bar input {
+    padding: 5px;
+    border: none;
+    border-radius: 5px;
+}
+
+.cart {
+    color: #fff;
+    font-weight: bold;
+}
+
+/* Product Header */
+.product-header {
+    text-align: center;
+    padding: 20px;
+}
+
+.banner-img {
+    width: 400px;
+    max-width: 600px;
+}
+
+.product-header h1 {
+    font-size: 2rem;
+    margin: 10px 0;
+}
+
+.platforms {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    font-weight: bold;
+}
+
+.platforms span {
+    padding: 5px 10px;
+    background-color: #333;
+    border-radius: 5px;
+}
+
+/* Product Info */
+.product-info {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 20px;
+}
+
+.trailer img {
+    width: 400px;
+}
+
+.price-info {
+    background-color: #333;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.discount {
+    font-size: 1.5rem;
+    color: #ff0000;
+}
+
+.price {
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.buy-button,
+.wishlist-button {
+    margin: 10px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.buy-button {
+    background-color: #ff4d00;
+    color: #fff;
+}
+
+.wishlist-button {
+    background-color: #555;
+    color: #fff;
+}
+
+/* Other Editions */
+.other-editions {
+    padding: 20px;
+}
+
+.other-editions h2 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.edition {
+    background-color: #333;
+    padding: 15px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Important Information */
+.important-info {
+    background-color: #333;
+    padding: 20px;
+    border-radius: 10px;
+    margin: 20px;
+    color: #ffcc00;
+}
+
+.important-info p {
+    margin: 10px 0;
+}
+
+.important-info a {
+    color: #ffcc00;
+    text-decoration: underline;
+}

@@ -169,3 +169,22 @@ body {
     color: #ffcc00;
     text-decoration: underline;
 }
+/* Botão Voltar */
+.back-button {
+    color: #fff;
+    background-color: #ad00ff;
+    padding: 13px 17.5px;
+    border-radius: 5px;
+    text-decoration: none;
+    margin-right: 10px;
+    font-weight: bold;
+    font-size: 0.9rem;
+    transition: background-color 0.3s ease;
+    width: 75px;
+    height: 40px;
+    box-shadow: 0px 4px 15px #8900cc;
+
+.back-button:hover {
+    background-color: #8900cc;
+}
+}

@@ -10,4 +10,13 @@ class Conexao {
         return self::$instance;
     }
 }
+setcookie('nome', 'valor', [
+    'expires' => time() + 3600,
+    'path' => '/',
+    'domain' => 'seusite.com',
+    'secure' => true,   // somente se o site estiver em HTTPS
+    'httponly' => true,
+    'samesite' => 'None' // ou 'Lax', dependendo do seu caso
+]);
+
 ?>

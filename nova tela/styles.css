@@ -28,6 +28,69 @@ body {
     width: 50px;
     margin-right: 10px;
 }
+.back-button {
+    background-color: #7700ff; /* Cor de fundo do botão */
+    color: white; /* Cor do texto */
+    padding: 8px 16px; /* Espaçamento interno */
+    border: none; /* Remover borda */
+    border-radius: 5px; /* Bordas arredondadas */
+    cursor: pointer; /* Mostrar cursor de ponteiro */
+    font-size: 16px; /* Tamanho da fonte */
+    transition: background-color 0.3s ease; /* Transição de cor suave */
+    margin-right: 10px; /* Espaço entre o botão e o logo */
+}
+
+.back-button:hover {
+    background-color: #ff004c; /* Cor de fundo ao passar o mouse */
+}
+
+#search-results {
+    margin-top: 20px;
+}
+body {
+    font-family: Arial, sans-serif;
+}
+
+#searchInput {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+}
+
+#resultsContainer {
+    border: 1px solid #ccc;
+    max-height: 200px;
+    overflow-y: auto;
+}
+
+#resultsContainer div {
+    padding: 10px;
+    border-bottom: 1px solid #eee;
+}
+
+#resultsContainer div:hover {
+    background-color: #f0f0f0;
+}
+
+
+.game-result {
+    border: 1px solid #ddd;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+}
+
+.game-result h3 {
+    margin: 0;
+    font-size: 1.2em;
+}
+
+.game-result p {
+    margin: 5px 0;
+}
+
 
 .brand-name {
     font-size: 1.5rem;

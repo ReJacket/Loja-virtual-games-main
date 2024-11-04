@@ -8,27 +8,73 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 
+<input type="text" id="searchInput" placeholder="Pesquise por jogos..." onkeyup="searchGames()">
+<div id="resultsContainer"></div>
+
+<script>
+    function searchGame() {
+        const searchTerm = document.getElementById("search-input").value;
+    
+        fetch("buscar_jogos.php", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({ term: searchTerm })
+        })
+        .then(response => response.json())
+        .then(data => {
+            // Exibe os resultados
+            const resultsDiv = document.getElementById("search-results");
+            resultsDiv.innerHTML = ""; // Limpa os resultados anteriores
+    
+            if (data.length > 0) {
+                data.forEach(game => {
+                    resultsDiv.innerHTML += `
+                        <div class="game-result">
+                            <h3>${game.nome}</h3>
+                            <p>Preço: R$${game.preco}</p>
+                            <p>Plataforma: ${game.plataforma}</p>
+                            <p>${game.descricao}</p>
+                        </div>
+                    `;
+                });
+            } else {
+                resultsDiv.innerHTML = "<p>Nenhum jogo encontrado.</p>";
+            }
+        })
+        .catch(error => console.error("Erro na busca:", error));
+    }
+    </script>
+    
+
 <body>
     <!-- Top Bar -->
     <header class="top-bar">
-        <div class="logo"> <!-- Botão Voltar -->
-            <a href="javascript:history.back()" class="back-button">Voltar</a>
+        <div class="logo">
+            <!-- Botão Voltar com link para outra página -->
+            <a href="../pages/index.html" class="back-button">Voltar</a>
             <img src="../img/Logo.png" alt="Cosmic Dragons Logo">
             <span class="brand-name">COSMIC <strong>DRAGONS</strong></span>
         </div>
+        
+        
 
         <nav class="navigation">
             <a href="#">Suporte</a>
             <a href="#">Meus favoritos</a>
             <a href="#">Meus pedidos</a>
             <div class="search-bar">
-                <input type="text" placeholder="Pesquisar...">
-                <button>🔍</button>
+                <input type="text" id="search-input" placeholder="Pesquisar...">
+                <button onclick="searchGame()">🔍</button>
             </div>
+            
+            <!-- Div para exibir os resultados -->
+            <div id="search-results"></div>
+            
             <a href="#" class="cart">Meu carrinho (5 itens)🛒 </a>
         </nav>
     </header>
-
 
     <!-- Main Content -->
     <main>
@@ -61,22 +107,34 @@
                     <span>Play</span>
                     <span>Xbox</span>
                 </div>
-                <button class="buy-button">COMPRAR</button>
+                <button class="buy-button" onclick="openPaymentModal()">COMPRAR</button>
                 <button class="wishlist-button">Lista de desejo</button>
             </div>
         </section>
 
-        <!-- Other Editions Section -->
-        <section class="other-editions">
-            <h2>Outras edições</h2>
-            <div class="edition">
-                <span>FIFA 22 - Deluxe Edition</span>
-                <span class="discount">-90%</span>
-                <span class="price">R$ 20,00</span>
-            </div>
-        </section>
-
-        <!-- Important Information Section -->
+        <!-- Modal de Seleção de Pagamento -->
+        <div id="paymentModal" class="modal" style="display: none;">
+            <div class="modal-content">
+                <span onclick="closePaymentModal()" class="close-btn">&times;</span>
+                <h2>Escolha o Método de Pagamento</h2>
+                <div class="payment-options">
+                    <div class="payment-method">
+                        <h3>Pagamento por Pix</h3>
+                        <p>Escaneie o código QR para efetuar o pagamento.</p>
+                        <img src="qrcode-ficticio.png" alt="QR Code Pix" class="qrcode">
+                        <button onclick="confirmPayment('Pix')">Confirmar Pagamento por Pix</button>
+                    </div>
+                    <div class="payment-method">
+                        <h3>Cartão de Crédito/Débito</h3>
+                        <p>Insira as informações do cartão para realizar o pagamento.</p>
+                        <button onclick="confirmPayment('Cartão de Crédito/Débito')">Pagar com Cartão</button>
+                    </div>
+                    <div class="payment-method">
+                        <h3>Boleto</h3>
+                        <p>Um boleto será gerado para pagamento.</p>
+                        <button onclick="confirmPayment('Boleto')">Gerar Boleto</button>
+                    </div>
+                       <!-- Important Information Section -->
         <section class="important-info">
             <p><strong>Informações Importantes</strong></p>
             <p>⚠ A partir da visualização da chave, não será possível solicitar o reembolso do pedido.</p>
@@ -85,7 +143,120 @@
             <p>⚠ O código de ativação é exclusivo para PC, via Steam. Não será possível ativar o código em outras
                 plataformas.</p>
         </section>
+                </div>
+            </div>
+        </div>
     </main>
+
+    <script>
+        // Função para abrir o modal de pagamento
+        function openPaymentModal() {
+            const modal = document.getElementById('paymentModal');
+            modal.style.display = 'flex';
+            modal.classList.add('fade-in');
+        }
+
+        // Função para fechar o modal de pagamento
+        function closePaymentModal() {
+            const modal = document.getElementById('paymentModal');
+            modal.style.display = 'none';
+            modal.classList.remove('fade-in');
+        }
+
+        // Função para confirmar o pagamento
+        function confirmPayment(method) {
+            closePaymentModal();
+            alert(`Pagamento por ${method} simulado com sucesso!`);
+            // Aqui, você pode adicionar um código para registrar o pagamento no sistema ou redirecionar o usuário
+        }
+    </script>
+
+    <style>
+        /* Estilos básicos e animação para o modal */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            padding-top: 50px;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            animation: fadeIn 0.5s ease;
+        }
+
+        .modal-content {
+            margin: auto;
+            padding: 20px;
+            background-color: #fff;
+            width: 50%;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            transform: scale(0.8);
+            animation: zoomIn 0.5s ease forwards;
+        }
+
+        /* Animações */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes zoomIn {
+            from { transform: scale(0.8); }
+            to { transform: scale(1); }
+        }
+
+        .close-btn {
+            float: right;
+            font-size: 24px;
+            cursor: pointer;
+            color: #444;
+        }
+
+        .payment-method {
+            margin-top: 20px;
+            padding: 10px;
+            background: #f9f9f9;
+            border-radius: 5px;
+            box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .payment-method h3 {
+            color: #333;
+            margin: 10px 0;
+        }
+
+        .qrcode {
+            width: 150px;
+            height: 150px;
+            margin-top: 10px;
+        }
+
+        .modal-content h2 {
+            color: #333;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .modal-content button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            margin-top: 10px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .modal-content button:hover {
+            background-color: #45a049;
+        }
+    </style>
+    <script src="../event/pesquisa.js"></script> <!-- Seu JavaScript aqui -->
 </body>
 
 </html>

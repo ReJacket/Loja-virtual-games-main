@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Loja Virtual</title>
+    <link rel="stylesheet" href="../styles/Carrinho.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Loja Maykon</h1>
+        <div class="products">
+            <div class="product">
+                <img src="img1.jpg" alt="Produto 1">
+                <h2>Produto 1</h2>
+                <p>R$ 100,00</p>
+                <button onclick="addToCart('Produto 1', 100)">Adicionar ao Carrinho</button>
+            </div>
+            <!-- Adicione mais produtos conforme necessário -->
+        </div>
+
+        <!-- Botão para abrir o carrinho -->
+        <button class="cart-btn" onclick="openCart()">🛒 Carrinho (<span id="cart-count">0</span>)</button>
+    </div>
+
+    <!-- Modal do Carrinho -->
+    <div class="cart-modal" id="cart-modal">
+        <div class="cart-content">
+            <span class="close-btn" onclick="closeCart()">&times;</span>
+            <h2>Meu Carrinho</h2>
+            <div id="cart-items"></div>
+            <p>Total: R$ <span id="cart-total">0.00</span></p>
+            <button onclick="finalizeOrder()">Finalizar Pedido</button>
+        </div>
+    </div>
+
+    <script src="../event/Carrinho.js"></script>
+</body>
+</html>

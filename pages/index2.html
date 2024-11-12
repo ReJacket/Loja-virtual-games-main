@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loja Virtual</title>
+    <link rel="stylesheet" href="../styles/estilo.css">
+</head>
+<body>
+    <h1>Lista de Produtos</h1>
+    <div id="product-list" class="product-list"></div>
+    <button onclick="openPaymentModal()">Finalizar Pedido</button>
+    <div id="cart-count">0</div>
+
+    <!-- Modal de Pagamento -->
+    <div id="payment-modal" class="payment-modal">
+        <div class="payment-content">
+            <h2>Pagamento</h2>
+            <p>Total: <span id="total-price"></span></p>
+            <form action="../PHP/confirmacao_pedido.php" method="POST">
+                <input type="hidden" name="total" value="" id="total-hidden">
+                <label for="payment-method">Selecione o método de pagamento:</label>
+                <select name="payment-method" id="payment-method">
+                    <option value="pix">Pix</option>
+                    <option value="credit-card">Cartão de Crédito/Débito</option>
+                    <option value="boleto">Boleto</option>
+                </select>
+                <button type="submit">Confirmar Pagamento</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="../event/script.js"></script>
+</body>
+</html>

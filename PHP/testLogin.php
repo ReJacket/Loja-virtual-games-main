@@ -1,39 +1,25 @@
 <?php
     session_start();
-    // print_r($_REQUEST);
-    if(isset($_POST['submit']) && !empty($_POST['email']) && !empty($_POST['senha']))
-    {
+    if(isset($_POST['submit']) && !empty($_POST['email']) && !empty($_POST['senha'])) {
         // Acessa
         include_once('config.php');
         $email = $_POST['email'];
         $senha = $_POST['senha'];
 
-        // print_r('Email: ' . $email);
-        // print_r('<br>');
-        // print_r('Senha: ' . $senha);
-
         $sql = "SELECT * FROM usuarios WHERE email = '$email' and senha = '$senha'";
-
         $result = $conexao->query($sql);
 
-         echo ($sql);
-        // print_r($result);
-
-        if(mysqli_num_rows($result) < 1)
-        {
+        if(mysqli_num_rows($result) < 1) {
             unset($_SESSION['email']);
             unset($_SESSION['senha']);
-            header('Location: ../PHP/login.php');
-        }
-        else
-        {
+            header('Location: login.php');
+        } else {
             $_SESSION['email'] = $email;
             $_SESSION['senha'] = $senha;
-            header('Location: ../PHP/sistema.php');
+            // Redireciona para index.html após login bem-sucedido
+            header('Location: ../pages/index.html');
         }
-    }
-    else
-    {
+    } else {
         // Não acessa
         header('Location: login.php');
     }

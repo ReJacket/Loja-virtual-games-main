@@ -1,207 +1,140 @@
 <?php
-session_start();
-if (isset($_POST['submit'])) {
-    include_once 'PHP/config.php';
+    include_once('config.php');
 
-    // Recebe os dados do formulário com proteção contra injeção SQL
-    $nome = mysqli_real_escape_string($conexao, $_POST['nome']);
-    $email = mysqli_real_escape_string($conexao, $_POST['email']);
-    $senha = password_hash($_POST['senha'], PASSWORD_DEFAULT); // Criptografa a senha
-    $telefone = mysqli_real_escape_string($conexao, $_POST['telefone']);
-    $sexo = mysqli_real_escape_string($conexao, $_POST['genero']);
-    $data_nasc = mysqli_real_escape_string($conexao, $_POST['data_nascimento']);
-    $cidade = mysqli_real_escape_string($conexao, $_POST['cidade']);
-    $estado = mysqli_real_escape_string($conexao, $_POST['estado']);
-    $endereco = mysqli_real_escape_string($conexao, $_POST['endereco']);
+    if (isset($_POST['submit'])) {
+        $nome = $_POST['nome'];
+        $email = $_POST['email'];
+        $senha = password_hash($_POST['senha'], PASSWORD_DEFAULT); // Criptografa a senha
+        $telefone = $_POST['telefone'];
+        $sexo = $_POST['genero'];
+        $data_nasc = $_POST['data_nascimento'];
+        $cidade = $_POST['cidade'];
+        $estado = $_POST['estado'];
+        $endereco = $_POST['endereco'];
 
-    // Verificar se o e-mail já está cadastrado
-    $checkEmail = "SELECT email FROM usuarios WHERE email = '$email'";
-    $resultCheck = mysqli_query($conexao, $checkEmail);
-    
-    if (mysqli_num_rows($resultCheck) > 0) {
-        echo "Este e-mail já está cadastrado. Por favor, escolha outro.";
-    } else {
-        // Consulta SQL para inserir os dados
-        $result = mysqli_query($conexao, "INSERT INTO usuarios(nome, email, senha, telefone, sexo, data_nasc, cidade, estado, endereco) 
-                VALUES ('$nome', '$email', '$senha', '$telefone', '$sexo', '$data_nasc', '$cidade', '$estado', '$endereco')");
+        $result = mysqli_query($conexao, "INSERT INTO usuarios(nome, senha, email, telefone, sexo, data_nasc, cidade, estado, endereco) VALUES ('$nome', '$senha', '$email', '$telefone', '$sexo', '$data_nasc', '$cidade', '$estado', '$endereco')");
 
-        if ($result) {
-            echo "Dados inseridos com sucesso!";
-            // Redireciona para a página de login após cadastro bem-sucedido
-            header('Location: login.php');
-            exit(); // Encerra o script após o redirecionamento
-        } else {
-            echo "Erro ao inserir dados: " . mysqli_error($conexao);
-        }
+        header('Location: login.php');
     }
-}
 ?>
-
 
 
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Formulario | GN</title>
+    <title>Formulário | Cosmic Dragon</title>
     <style>
-        /* Estilo geral */
-        body {
-            font-family: Arial, Helvetica, sans-serif;
-            background-image: linear-gradient(to right, rgb(0, 0, 0), rgb(17, 17, 17));
-            /* Gradiente com tons de preto */
-            color: white;
-            display: flex;
-            justify-content: center;
-            align-items: flex-start;
-            min-height: 100vh;
-            margin: 0;
-            overflow-y: auto;
+        :root {
+            --background-dark: linear-gradient(to right, #000000, #2c2c2c);
+            --background-light: linear-gradient(to right, #ffffff, #e0e0e0);
+            --text-color-dark: #fff;
+            --text-color-light: #000;
+            --glow-color: rgba(128, 0, 128, 0.3);
+            --button-bg-color: #4b4b4b;
+            --button-hover-color: #7a7a7a;
         }
 
-        /* Caixa do formulário */
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: var(--background-dark);
+            color: var(--text-color-dark);
+            transition: background 0.5s, color 0.5s;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
         .box {
-            position: relative;
-            background-color: rgba(0, 0, 0, 0.6);
+            background-color: rgba(0, 0, 0, 0.5);
             padding: 20px;
             border-radius: 15px;
-            width: 80%;
             max-width: 400px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-            animation: floatUp 2s ease-out;
-            transition: box-shadow 0.3s ease, background-color 0.3s ease;
-            /* Adicionando transição para a opacidade */
-            margin-top: 20px;
+            width: 90%;
+            text-align: center;
+            box-sizing: border-box;
+            transition: background-color 0.5s;
+            color: inherit;
+            box-shadow: 0 0 15px var(--glow-color);
         }
 
         .box:focus-within {
-            background-color: rgba(0, 0, 0, 0.8);
-            /* Torna a caixa mais visível quando focada */
-            box-shadow: 0 0 15px rgba(128, 0, 128, 0.7);
-            /* Brilho roxo suave ao redor da caixa */
+            box-shadow: 0 0 20px var(--glow-color), 0 0 20px var(--glow-color);
         }
 
-        /* Animação de flutuação */
-        @keyframes floatUp {
-            0% {
-                transform: translateY(50%);
-                opacity: 0;
-            }
-
-            100% {
-                transform: translateY(0);
-                opacity: 1;
-            }
-        }
-
-        /* Estilo para o campo do legend e border */
         fieldset {
-            border: 3px solid purple;
+            border: 3px solid dodgerblue;
             padding: 20px;
-            border-radius: 10px;
-        }
-
-        /* Efeito de brilho animado no <legend> */
-        @keyframes glow {
-            0% {
-                box-shadow: 0 0 5px rgba(128, 0, 128, 0.2), 0 0 10px rgba(128, 0, 128, 0.1), 0 0 15px rgba(128, 0, 128, 0.05);
-            }
-
-            50% {
-                box-shadow: 0 0 10px rgba(128, 0, 128, 0.4), 0 0 20px rgba(128, 0, 128, 0.3), 0 0 30px rgba(128, 0, 128, 0.2);
-            }
-
-            100% {
-                box-shadow: 0 0 5px rgba(128, 0, 128, 0.2), 0 0 10px rgba(128, 0, 128, 0.1), 0 0 15px rgba(128, 0, 128, 0.05);
-            }
-        }
-
-        /* Aplicando o brilho suave e animado ao legend */
-        legend {
+            transition: color 0.5s;
             display: flex;
+            flex-direction: column;
             align-items: center;
-            justify-content: center;
-            gap: 10px;
-            border: 1px solid purple;
+        }
+
+        legend {
+            border: 1px solid dodgerblue;
             padding: 10px;
-            text-align: center;
-            background-color: purple;
+            background-color: dodgerblue;
             border-radius: 8px;
-            animation: glow 2s ease-in-out infinite;
-            /* Animação pulsante do brilho */
+            font-size: 20px;
+            color: white;
         }
 
-        .logo {
-            width: 55px;
-            /* Tamanho da logo */
-            height: auto;
-            margin-right: 10px;
-            /* Espaçamento à direita da logo */
-        }
-
-        /* Estilo do input e label */
         .inputBox {
             position: relative;
-            margin-bottom: 20px;
+            margin: 10px 0;
+            text-align: left;
+            width: 100%;
         }
 
         .inputUser {
             background: none;
             border: none;
-            border-bottom: 1px solid white;
+            border-bottom: 1px solid currentColor;
             outline: none;
-            color: white;
+            color: inherit;
             font-size: 15px;
             width: 100%;
-            letter-spacing: 2px;
-            padding: 5px;
+            padding: 8px;
+            transition: box-shadow 0.3s ease;
+        }
+
+        .inputUser:focus {
+            box-shadow: 0 0 8px var(--glow-color);
         }
 
         .labelInput {
             position: absolute;
-            top: 0;
-            left: 0;
+            top: 10px;
+            left: 0px;
             pointer-events: none;
             transition: 0.5s;
+            color: inherit;
         }
 
-        .inputUser:focus~.labelInput,
-        .inputUser:valid~.labelInput {
+        .inputUser:focus ~ .labelInput,
+        .inputUser:valid ~ .labelInput {
             top: -20px;
             font-size: 12px;
-            color: purple;
+            color: dodgerblue;
         }
 
         #data_nascimento {
-            width: 100%;
-            /* Para garantir que o campo ocupe toda a largura disponível */
-            padding: 10px;
-            border: 2px solid rgba(128, 0, 128, 0.5);
-            /* Borda roxa suave */
-            border-radius: 8px;
-            /* Bordas arredondadas */
-            background-color: rgba(0, 0, 0, 0.6);
-            /* Fundo semitransparente */
-            color: white;
-            font-size: 15px;
-            transition: border-color 0.3s ease-in-out, background-color 0.3s ease-in-out;
-            box-sizing: border-box;
-            /* Garante que o padding não afete o tamanho total do campo */
-        }
-
-        #data_nascimento:focus {
-            border-color: rgba(128, 0, 128, 1);
-            /* Cor roxa mais forte ao focar */
-            background-color: rgba(0, 0, 0, 0.8);
-            /* Fundo mais escuro quando o campo é focado */
+            border: none;
+            padding: 8px;
+            border-radius: 10px;
             outline: none;
-            /* Retira o contorno padrão do navegador */
+            font-size: 15px;
+            width: 100%;
+            box-sizing: border-box;
         }
 
         #submit {
-            background-image: linear-gradient(to right, rgb(247, 5, 5), rgb(183, 0, 255));
+            background-image: linear-gradient(to right, rgb(0, 92, 197), rgb(90, 20, 220));
             width: 100%;
             border: none;
             padding: 15px;
@@ -209,250 +142,161 @@ if (isset($_POST['submit'])) {
             font-size: 15px;
             cursor: pointer;
             border-radius: 10px;
-            transition: background-image 0.3s ease;
+            transition: background 0.3s;
         }
 
         #submit:hover {
-            background-image: linear-gradient(to right, rgb(116, 23, 23), rgb(99, 30, 126));
+            background-image: linear-gradient(to right, rgb(0, 80, 172), rgb(80, 19, 195));
         }
 
-        /* Estilos para os campos de seleção de gênero (radios) */
-        p {
-            margin: 10px 0;
+        .backButton {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            padding: 10px 20px;
+            background-color: transparent;
+            color: inherit;
+            border: 2px solid currentColor;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background 0.3s, color 0.3s;
         }
 
-        input[type="radio"] {
-            display: none;
+        .backButton:hover {
+            background-color: rgba(255, 255, 255, 0.1);
         }
 
-        input[type="radio"]+label {
-            position: relative;
-            display: inline-block;
-            background-color: rgba(255, 255, 255, 0.2);
-            padding: 10px 30px;
-            margin: 5px;
-            border-radius: 50px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        input[type="radio"]:checked+label {
-            background-color: purple;
-            box-shadow: 0 0 10px rgba(255, 255, 255, 0.7);
-        }
-
-        input[type="radio"]:checked+label::after {
-            content: '✓';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            color: white;
-            font-size: 18px;
-        }
-
-        input[type="radio"]:hover+label {
-            background-color: rgba(255, 255, 255, 0.3);
-        }
-
-        /* Responsividade */
-        @media screen and (max-width: 768px) {
-            .box {
-                width: 80%;
-                /* Ajusta a largura da caixa no celular */
-            }
-
-            #data_nascimento {
-                width: 100%;
-                /* Garante que o campo ocupe toda a largura */
-            }
-        }
-
-        fieldset {
-            padding: 15px;
-        }
-
-        #submit {
-            font-size: 14px;
-        }
-
-        .inputBox {
-            margin-bottom: 15px;
-        }
-
-        input[type="radio"]+label {
-            font-size: 14px;
-            padding: 8px 20px;
-        }
-
-        /* Estilos para o modo claro */
-        body.light-mode {
-            background-image: linear-gradient(to right, rgb(255, 255, 255), rgb(200, 200, 200));
-            color: black;
-        }
-
-        /* Estilo do input no modo claro */
-        body.light-mode .inputUser {
-            color: black;
-            border-bottom: 1px solid black;
-            background-color: rgba(255, 255, 255, 0.8);
-        }
-
-
-        .light-mode .box {
-            background-color: rgba(255, 255, 255, 0.8);
-            color: black;
-        }
-
-        .light-mode #data_nascimento {
-            background-color: rgba(255, 255, 255, 0.6);
-            color: black;
-            border: 2px solid rgba(0, 0, 0, 0.5);
-        }
-
-        .light-mode #submit {
-            background-image: linear-gradient(to right, rgb(247, 5, 5), rgb(0, 255, 255));
-        }
-
-        /* Estilos para o modo escuro */
-        body.dark-mode {
-            background-image: linear-gradient(to right, rgb(0, 0, 0), rgb(17, 17, 17));
-            /* Alterando o gradiente para tons de preto */
-            color: white;
-        }
-
-        .dark-mode .box {
-            background-color: rgba(0, 0, 0, 0.6);
-            color: white;
-        }
-
-        .dark-mode #data_nascimento {
-            background-color: rgba(0, 0, 0, 0.6);
-            color: white;
-            border: 2px solid rgba(0, 0, 0, 0.5);
-            /* Removendo o roxo e substituindo por preto */
-        }
-
-        .dark-mode #submit {
-            background-image: linear-gradient(to right, rgb(0, 0, 0), rgb(0, 0, 0));
-            /* Alterando o gradiente para preto */
-        }
-
-        /* Estilo do botão de alternar tema */
-        #theme-toggle {
+        .toggle-theme {
             position: fixed;
             top: 20px;
             right: 20px;
             padding: 10px 20px;
-            font-size: 16px;
-            background-color: black;
-            /* Alterando para preto */
-            color: white;
+            background-color: #BBBBBB;
             border: none;
-            border-radius: 5px;
+            border-radius: 10px;
             cursor: pointer;
-            transition: background-color 0.3s ease;
+            color: #000;
+            font-weight: bold;
+            transition: background 0.3s;
         }
 
-        #theme-toggle:hover {
-            background-color: rgba(0, 0, 0, 0.7);
-            /* Alterando para um preto mais suave */
+        .toggle-theme:hover {
+            background-color: #888888;
+            color: white;
+        }
+
+        .box img {
+            width: 50px;
+            height: 50px;
+            margin-bottom: 10px;
+        }
+
+        /* Estilo dos botões de seleção de gênero */
+        .radio-group {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            margin-top: 10px;
+            color: inherit;
+        }
+
+        .radio-group label {
+            display: flex;
+            align-items: center;
+            font-size: 14px;
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+
+        .radio-group input[type="radio"] {
+            display: none;
+        }
+
+        .radio-group label::before {
+            content: '';
+            display: inline-block;
+            width: 15px;
+            height: 15px;
+            margin-right: 8px;
+            border-radius: 50%;
+            border: 2px solid currentColor;
+            transition: background-color 0.3s;
+        }
+
+        .radio-group input[type="radio"]:checked + label::before {
+            background-color: dodgerblue;
         }
     </style>
 </head>
-
 <body>
-    <a href="home.php">Voltar</a>
-    <button id="theme-toggle">Alternar Tema</button>
+    <a class="backButton" href="home.php">Voltar</a>
+    <button class="toggle-theme" onclick="toggleTheme()">Modo Claro</button>
 
     <div class="box">
-        <form action="formulario.php" method="post">
+        <img src="Logo.png" alt="Logo Cosmic Dragon">
+        <form action="formulario.php" method="POST">
             <fieldset>
-                <legend>
-                    <img src="Logo.png" alt="Logo" class="logo">
-                    <b>Formulário de clientes</b>
-                </legend>
-
-                <br>
+                <legend><b>Cosmic Dragon</b></legend>
                 <div class="inputBox">
                     <input type="text" name="nome" id="nome" class="inputUser" required>
-                    <label for="nome" class="labelInput">Nome Completo</label>
+                    <label for="nome" class="labelInput">Nome completo</label>
                 </div>
-                <br><br>
-                <div class="inputBox">
-                    <input type="text" name="email" id="email" class="inputUser" required>
-                    <label for="email" class="labelInput">Email</label>
-                </div>
-                <br><br>
                 <div class="inputBox">
                     <input type="password" name="senha" id="senha" class="inputUser" required>
                     <label for="senha" class="labelInput">Senha</label>
                 </div>
-                <br><br>
+                <div class="inputBox">
+                    <input type="text" name="email" id="email" class="inputUser" required>
+                    <label for="email" class="labelInput">Email</label>
+                </div>
                 <div class="inputBox">
                     <input type="tel" name="telefone" id="telefone" class="inputUser" required>
                     <label for="telefone" class="labelInput">Telefone</label>
                 </div>
-                <br>
-                <p>Sexo:</p>
-                <input type="radio" id="feminino" name="genero" value="feminino" required>
-                <label for="feminino">Feminino</label>
-                <br>
-                <input type="radio" id="masculino" name="genero" value="masculino" required>
-                <label for="masculino">Masculino</label>
-                <br>
-                <input type="radio" id="outro" name="genero" value="outro" required>
-                <label for="outro">Outro</label>
-                <br>
+                <div class="radio-group">
+                    <input type="radio" id="feminino" name="genero" value="feminino" required>
+                    <label for="feminino">Feminino</label>
+                    <input type="radio" id="masculino" name="genero" value="masculino" required>
+                    <label for="masculino">Masculino</label>
+                    <input type="radio" id="outro" name="genero" value="outro" required>
+                    <label for="outro">Outro</label>
+                </div>
                 <label for="data_nascimento"><b>Data de Nascimento:</b></label>
                 <input type="date" name="data_nascimento" id="data_nascimento" required>
-
-                <br><br><br>
                 <div class="inputBox">
                     <input type="text" name="cidade" id="cidade" class="inputUser" required>
                     <label for="cidade" class="labelInput">Cidade</label>
                 </div>
-                <br><br>
                 <div class="inputBox">
                     <input type="text" name="estado" id="estado" class="inputUser" required>
                     <label for="estado" class="labelInput">Estado</label>
                 </div>
-                <br><br>
                 <div class="inputBox">
                     <input type="text" name="endereco" id="endereco" class="inputUser" required>
                     <label for="endereco" class="labelInput">Endereço</label>
                 </div>
-                <br><br>
-                <input type="submit" name="submit" id="submit" value="Enviar">
+                <input type="submit" name="submit" id="submit">
             </fieldset>
         </form>
     </div>
+
     <script>
-        const themeToggleButton = document.getElementById('theme-toggle');
-        const body = document.body;
+        let darkMode = true;
 
-        // Verificar o tema preferido salvo no localStorage
-        const currentTheme = localStorage.getItem('theme');
-        if (currentTheme === 'dark') {
-            body.classList.add('dark-mode');
-        } else {
-            body.classList.add('light-mode');
+        function toggleTheme() {
+            darkMode = !darkMode;
+            document.body.style.background = darkMode ? "var(--background-dark)" : "var(--background-light)";
+            document.body.style.color = darkMode ? "var(--text-color-dark)" : "var(--text-color-light)";
+            document.querySelector('.toggle-theme').textContent = darkMode ? "Modo Claro" : "Modo Escuro";
+
+            const inputElements = document.querySelectorAll('.inputUser');
+            inputElements.forEach(input => {
+                input.style.color = darkMode ? "var(--text-color-dark)" : "var(--text-color-light)";
+            });
+
+            document.querySelector('.box').style.backgroundColor = darkMode ? "rgba(0, 0, 0, 0.5)" : "rgba(255, 255, 255, 0.7)";
         }
-
-        // Alternar entre temas
-        themeToggleButton.addEventListener('click', () => {
-            body.classList.toggle('light-mode');
-            body.classList.toggle('dark-mode');
-
-            // Salvar a preferência do tema no localStorage
-            if (body.classList.contains('dark-mode')) {
-                localStorage.setItem('theme', 'dark');
-            } else {
-                localStorage.setItem('theme', 'light');
-            }
-        });
     </script>
-
 </body>
-
 </html>

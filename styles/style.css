@@ -34,19 +34,16 @@ header .menu a {
 }
 
 header .menu a:hover {
-    font-weight: bold; /* Negrito */
-    background: linear-gradient(to right, #2f00ff, #b700ff); /* Gradiente linear */
-    -webkit-background-clip: text; /* Aplica o gradiente ao texto (para navegadores WebKit) */
-    background-clip: text; /* Aplica o gradiente ao texto (propriedade padrão) */
-    color: transparent; /* Torna o texto transparente */
-    -webkit-text-fill-color: transparent; /* Torna o preenchimento do texto transparente */
-    background-size: 200% auto; /* Tamanho inicial do gradiente */
+    font-weight: bold; 
+    background: linear-gradient(to right, #2f00ff, #b700ff); 
+    -webkit-background-clip: text; 
+    background-clip: text; 
+    color: transparent; 
+    -webkit-text-fill-color: transparent; 
+    background-size: 200% auto; 
     background-position: right;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Adiciona uma sombra ao texto */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); 
 }
-
-
-
 
 header .logo {
     display: flex;
@@ -113,7 +110,7 @@ header .menu {
     display: none;
     position: absolute;
     background: linear-gradient(rgba(255, 0, 119, 0.404), rgba(55, 0, 255, 0.308));
-    min-width: 120px; /* Você pode ajustar essa largura conforme necessário */
+    min-width: 120px;
     box-shadow: 0px 8px 16px 0px rgba(5, 2, 3, 0.767);
     z-index: 1;
     padding: 20px;
@@ -126,8 +123,8 @@ header .menu {
     text-decoration: none;
     display: block;
     text-align: left;
-    white-space: nowrap; /* Evita quebra de linha no texto */
-    width: 150px; /* Definindo uma largura fixa */
+    white-space: nowrap;
+    width: 150px;
 }
 
 .dropdown-content li:hover {
@@ -137,7 +134,6 @@ header .menu {
 .dropdown:hover .dropdown-content {
     display: block;
 }
-
 
 /* Clear floats */
 .menu:after {
@@ -310,19 +306,30 @@ header .menu {
     inset: auto 10px 10px 10px;
 }
 
+/* Adicionando Media Queries para Responsividade */
 
+@media screen and (max-width: 1200px) {
+    header {
+        font-size: 20px;
+    }
+}
 
-/* Adicione qualquer outro estilo conforme necessário... */
+@media screen and (max-width: 900px) {
+    .slider .list .item .content h2 {
+        font-size: 50px;
+    }
+    .thumbnail {
+        padding: 0 20px;
+    }
+}
 
 @media screen and (max-width: 703px) {
     header {
         font-size: 16px;
-        /* Reduzir tamanho da fonte no header para telas menores */
     }
 
     .slider .list .item .content h2 {
         font-size: 40px;
-        /* Ajustar tamanho da fonte do título */
     }
 
     .arrows {
@@ -332,17 +339,25 @@ header .menu {
 
 @media screen and (max-width: 678px) {
     header {
-        font-size: 16px;
-        /* Reduzir tamanho da fonte no header para telas ainda menores */
+        font-size: 14px;
     }
 
     .slider .list .item .content h2 {
-        font-size: 40px;
-        /* Ajustar tamanho da fonte do título */
+        font-size: 30px;
     }
 
     .arrows {
         top: 10%;
+    }
+
+    .thumbnail .item {
+        width: 120px;
+        height: 180px;
+    }
+
+    .thumbnail {
+        height: auto;
+        padding: 0 10px;
     }
 }
 
@@ -395,8 +410,6 @@ header .menu {
     justify-content: center;
     align-items: center;
     height: calc(100vh - 100px);
-    /* Adjust height based on header size */
-
 }
 
 .video-section iframe {
@@ -411,7 +424,7 @@ header .menu {
     display: flex;
     align-items: center;
     justify-content: center;
-    background: linear-gradient(to bottom, rgb(111, 0, 255),rgb(195, 0, 255));
+    background: linear-gradient(to bottom, rgb(111, 0, 255), rgb(195, 0, 255));
     border-radius: 30px;
     overflow: hidden;
     cursor: pointer;

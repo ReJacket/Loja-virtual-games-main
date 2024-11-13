@@ -1,6 +1,6 @@
 <?php
 
-    $dbHost = 'Localhost:3308';
+    $dbHost = 'Localhost:3306';
     $dbUsername = 'root';
     $dbPassword = '';
     $dbName = 'formulario-renan';

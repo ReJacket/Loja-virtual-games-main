@@ -1,16 +1,16 @@
 .price {
     display: inline-block;
-    background-color: #ffcc00; /* Cor de fundo do botão */
+    background-color: rgba(255, 255, 255, 0.8); /* Cor de fundo com transparência (80%) */
     color: #000; /* Cor do texto */
     text-align: center;
     padding: 10px 15px;
-    border-radius: 20px;
+    border-radius: 5px;
     text-decoration: none; /* Remove o sublinhado */
     margin-top: 10px;
     transition: background-color 0.3s, transform 0.2s;
 }
 
 .price:hover {
-    background-color: #6200ff; /* Cor ao passar o mouse */
+    background-color: rgba(176, 7, 255, 1); /* Sem transparência ao passar o mouse */
     transform: scale(1.05); /* Efeito de aumento ao passar o mouse */
 }
